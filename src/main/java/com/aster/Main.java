@@ -11,12 +11,22 @@ public class Main {
         String json = """
                 {
                   "event": "data",
-                  "channel": "trades",
                   "data": {
                     "symbol": "2330",
-                    "price": 1250.0,
-                    "size": 3
-                  }
+                    "type": "EQUITY",
+                    "exchange": "TWSE",
+                    "market": "TSE",
+                    "bid": 567,
+                    "ask": 568,
+                    "price": 568,
+                    "size": 4778,
+                    "volume": 54538,
+                    "isClose": true,
+                    "time": 1685338200000000,
+                    "serial": 6652422
+                  },
+                  "id": "<CHANNEL_ID>",
+                  "channel": "trades"
                 }
                 """;
 
@@ -28,9 +38,14 @@ public class Main {
         TradeTick tradeTick = message.getData();
 
         System.out.println("event = " + message.getEvent());
-        System.out.println("channel = " + message.getChannel());
         System.out.println("symbol = " + tradeTick.getSymbol());
         System.out.println("price = " + tradeTick.getPrice());
         System.out.println("size = " + tradeTick.getSize());
+        System.out.println("volume = " + tradeTick.getVolume());
+        System.out.println("time = " + tradeTick.getTime());
+        System.out.println("serial = " + tradeTick.getSerial());
+        System.out.println("id = " + message.getId());
+        System.out.println("channel = " + message.getChannel());
+
     }
 }

@@ -3,8 +3,10 @@ package com.aster.model;
 public class FugleMessage {
 
     private String event;
-    private String channel;
     private TradeTick data;
+    private String id;
+    private String channel;
+
 
     public String getEvent() {
         return event;
@@ -28,5 +30,13 @@ public class FugleMessage {
 
     public void setData(TradeTick data) {
         this.data = data;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
