@@ -3,7 +3,6 @@ package com.aster;
 import com.aster.model.FugleMessage;
 import com.aster.model.TradeTick;
 import com.aster.parser.FugleMessageParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
 
