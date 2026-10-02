@@ -2,6 +2,7 @@ package com.aster;
 
 import com.aster.model.FugleMessage;
 import com.aster.model.TradeTick;
+import com.aster.parser.FugleMessageParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
@@ -30,11 +31,9 @@ public class Main {
                 }
                 """;
 
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        FugleMessage message =
-                objectMapper.readValue(json, FugleMessage.class);
-
+        // Parse json message.
+        FugleMessageParser parser = new FugleMessageParser();
+        FugleMessage message = parser.parse(json);
         TradeTick tradeTick = message.getData();
 
         System.out.println("event = " + message.getEvent());
